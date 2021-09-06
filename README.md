@@ -6,6 +6,10 @@
 **Author**: Yahia Labib
 **Version**: 2.0.0
 
+## What did we do today 
+
+![img](lab07.png)
+
 ## Overview
 
 This webpage designed to help people to get informations about any country or city they choose.
