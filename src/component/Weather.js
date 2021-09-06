@@ -17,7 +17,7 @@ class Weather extends React.Component {
     async getWeather() {
 
 
-        let weatherURL = `http://localhost:3202/weather?cityName=${this.props.locName}&cityLat=${this.props.cityData.lat}&citylon=${this.props.cityData.lon}`
+        let weatherURL = `${process.env.REACT_APP_SERVER_LINK}/weather?cityName=${this.props.locName}&cityLat=${this.props.cityData.lat}&citylon=${this.props.cityData.lon}`
         let weatherData = await axios.get(weatherURL)
         console.log(weatherData);
         console.log(weatherData.data[0].description)
