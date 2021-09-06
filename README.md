@@ -4,7 +4,7 @@
 # city-explorer
 
 **Author**: Yahia Labib
-**Version**: 1.0.0
+**Version**: 2.0.0
 
 ## Overview
 
@@ -37,3 +37,13 @@ Start time: 8: 45 pm
 Finish time: 11:15 pm
 
 Actual time needed to complete: 2:30 hours
+
+### All feature of lab 07
+
+Estimate of time needed to complete: 3 hours
+
+Start time: 4:00 pm
+
+Finish time:8:15 pm
+
+Actual time needed to complete: 4:15 hours
