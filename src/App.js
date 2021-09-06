@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 
@@ -9,7 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       locData: {},
-      locName: '',
+      locName: ' ',
       showData: false,
       showError: false,
       mapURL: ''
@@ -24,20 +25,16 @@ class App extends React.Component {
     })
 
 
-    if (this.state.locName !== '') {
-      this.setState({
-        showData: true,
-        showError: false
-      })
-    }
-    else {
-      this.setState({
+    if (this.state.locName === '') {
+      await this.setState({
         showData: false,
         showError: true
-      })
-    }
-
-    console.log('s', this.state.locName);
+      }) 
+     }
+  
+  
+ 
+    console.log('s', `${process.env.REACT_APP_LOCATIONIQ_KEY}`);
       let locURL = `https://eu1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.locName}&format=json`;
 
       let comingData = await axios.get(locURL)
@@ -73,7 +70,7 @@ class App extends React.Component {
           </form>
 
           {this.state.showData &&
-            <p>{this.state.locName} Lat:{this.state.cityData.lat} /Lon:{this.state.cityData.lon} </p>
+            <p>{this.state.cityData.display_name} : Lat:{this.state.cityData.lat} / Lon:{this.state.cityData.lon} </p>
           }
           {this.state.showData &&
             <img src={this.state.mapURL} alt="anything" />
