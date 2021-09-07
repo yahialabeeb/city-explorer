@@ -1,7 +1,11 @@
 import React from 'react';
 import axios from 'axios';
-import Weather from './component/Weather.js'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Weather from './component/Weather.js';
+import Movie from './component/Movie.js'
+import Form from 'react-bootstrap/Form';
+import Image from 'react-bootstrap/Image'
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -71,25 +75,42 @@ class App extends React.Component {
 
     return (
       <>
-        <h2>
+        <h2 style={{ padding: 20}}>
           City explorer
         </h2>
+        <Form.Label>CITY NAME</Form.Label>
         <form onSubmit={this.getData}>
+
           <input type="text" name="cityname" placeholder="enter city name" />
-          <button>
-            Find city
+          <button variant="info" >
+            EXPLORE
           </button>
         </form>
 
         {this.state.showData &&
-          <p>{this.state.cityData.display_name} : Lat:{this.state.cityData.lat} / Lon:{this.state.cityData.lon} </p>
-        }
-        {this.state.showData &&
-          <img src={this.state.mapURL} alt="anything" />
+          <>
+            <p style={{ padding: 15 }}>{this.state.cityData.display_name} : Lat:{this.state.cityData.lat} / Lon:{this.state.cityData.lon} </p>
+
+
+            <Image style={{ marginLeft: '150px', padding: 10 }} src={this.state.mapURL} roundedCircle />
+
+
+
+            <h3>Weather for one week</h3>
+
+            <h3> Movies  </h3>
+          </>
         }
         {this.state.showError && <p>Sorry Error</p>}
 
         <Weather
+          cityData={this.state.cityData}
+          locName={this.state.locName}
+          showData={this.state.showData}
+          manger={this.manger}
+          show={this.state.show}
+        />
+        <Movie
           cityData={this.state.cityData}
           locName={this.state.locName}
           showData={this.state.showData}
