@@ -58,9 +58,7 @@ class Weather extends React.Component {
 
         return (
             <>
-                {/* <button onClick = {this.getWeather}>
-                explor
-            </button> */}
+           
 
                 {this.state.Weatherappear}
 
