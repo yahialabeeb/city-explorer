@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
 import Weather from './component/Weather.js';
 import Movie from './component/Movie.js'
 import Form from 'react-bootstrap/Form';
@@ -98,7 +97,7 @@ class App extends React.Component {
 
             <h3>Weather for one week</h3>
 
-            <h3> Movies  </h3>
+            
           </>
         }
         {this.state.showError && <p>Sorry Error</p>}
@@ -110,6 +109,9 @@ class App extends React.Component {
           manger={this.manger}
           show={this.state.show}
         />
+         {this.state.showData &&
+        <h3> Movies  </h3>
+        }
         <Movie
           cityData={this.state.cityData}
           locName={this.state.locName}
@@ -117,6 +119,7 @@ class App extends React.Component {
           manger={this.manger}
           show={this.state.show}
         />
+       
       </>
     );
   }

@@ -51,3 +51,13 @@ Start time: 4:00 pm
 Finish time:8:15 pm
 
 Actual time needed to complete: 4:15 hours
+
+### All feature of lab 08
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 3:00 pm
+
+Finish time:7:15 pm
+
+Actual time needed to complete: 4:15 hours
