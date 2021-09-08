@@ -14,10 +14,10 @@ class Movie extends React.Component {
 
         }
     }
-    async getMovies() {
+    async getMovies(name) {
 
 
-        let movieURL = `${process.env.REACT_APP_SERVER_LINK}movie?cityName=${this.props.locName}`
+        let movieURL = `${process.env.REACT_APP_SERVER_LINK}movie?cityName=${name}`
         let movieData = (await axios.get(movieURL)).data
         // console.log(movieData);
         console.log(movieData[2])
@@ -40,14 +40,14 @@ class Movie extends React.Component {
                     <Card.Img variant="top" src="" />
                     <Card.Body>
                         <Card.Title>{element.title}</Card.Title>
-                        <Card.Text>
+                        
                             <p> Overview : {element.overview}</p>
                             <p> Average_votes : {element.average_votes}</p>
                             <p> Total_votes : {element.total_votes}</p>
                             <p> Popularity : {element.popularity}</p>
                             <p> Released_on : {element.released_on}</p>
                             <p> Average_votes : {element.average_votes}</p>
-                        </Card.Text>
+                     
                     </Card.Body>
                 </Card>
 
@@ -60,24 +60,23 @@ class Movie extends React.Component {
             movieAppear: movieArr,
         })
 
-        this.props.manger();
 
     }
 
     render() {
 
-        if (this.props.show) {
-            this.getMovies()
-
-        }
+    
 
         return (
-            
+            <>
+            <h3>
+                Movies
+            </h3>
                 
                 <Row md={4} className="g-4">
                     {this.state.movieAppear}
                 </Row>
-            
+            </>
         );
     }
 }
