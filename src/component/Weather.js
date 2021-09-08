@@ -14,12 +14,12 @@ class Weather extends React.Component {
 
         }
     }
-    async getWeather() {
+    async getWeather(name,data) {
 
 
-        let weatherURL = `${process.env.REACT_APP_SERVER_LINK}weather?cityName=${this.props.locName}&cityLat=${this.props.cityData.lat}&citylon=${this.props.cityData.lon}`
+        let weatherURL = `${process.env.REACT_APP_SERVER_LINK}weather?cityName=${name}&cityLat=${data.lat}&citylon=${data.lon}`
         let weatherData = await axios.get(weatherURL)
-        console.log(weatherData);
+        // console.log(weatherData);
         console.log(weatherData.data[0].description)
         let weatherArr = []
         if (weatherData.data[0].description !== undefined) {
@@ -34,28 +34,20 @@ class Weather extends React.Component {
                 );
             });
         }
-        else {
-
-            weatherArr = <p>{weatherData.data[0]}</p>
-
-        }
+       
 
         this.setState({
 
             Weatherappear: weatherArr,
         })
 
-        this.props.manger();
+        
 
     }
 
     render() {
      
-        if (this.props.show) {
-            this.getWeather()
-            
-        }
-
+     
         return (
             <>
            
