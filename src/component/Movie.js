@@ -11,6 +11,7 @@ class Movie extends React.Component {
         super(props);
         this.state = {
             movieAppear: [],
+            showData: false,
 
         }
     }
@@ -40,14 +41,14 @@ class Movie extends React.Component {
                     <Card.Img variant="top" src="" />
                     <Card.Body>
                         <Card.Title>{element.title}</Card.Title>
-                        
-                            <p> Overview : {element.overview}</p>
-                            <p> Average_votes : {element.average_votes}</p>
-                            <p> Total_votes : {element.total_votes}</p>
-                            <p> Popularity : {element.popularity}</p>
-                            <p> Released_on : {element.released_on}</p>
-                            <p> Average_votes : {element.average_votes}</p>
-                     
+
+                        <p> Overview : {element.overview}</p>
+                        <p> Average_votes : {element.average_votes}</p>
+                        <p> Total_votes : {element.total_votes}</p>
+                        <p> Popularity : {element.popularity}</p>
+                        <p> Released_on : {element.released_on}</p>
+                        <p> Average_votes : {element.average_votes}</p>
+
                     </Card.Body>
                 </Card>
 
@@ -56,7 +57,7 @@ class Movie extends React.Component {
 
 
         this.setState({
-
+            showData: true,
             movieAppear: movieArr,
         })
 
@@ -65,14 +66,15 @@ class Movie extends React.Component {
 
     render() {
 
-    
+
 
         return (
             <>
-            <h3>
-                Movies
-            </h3>
-                
+                {this.state.showData &&
+                    < h3 >
+                        Movies
+                    </h3>
+                }
                 <Row md={4} className="g-4">
                     {this.state.movieAppear}
                 </Row>
